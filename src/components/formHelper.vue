@@ -1,9 +1,24 @@
 <template>
   <form action="" class="container">
-    <slot name="Formheader"></slot>
-    <div class="form-group">
-      <label for="">Name</label>
-      <input type="text" class="form-control" />
+    <!-- <slot name="Formheader"></slot> -->
+    <h1 class="text-center">Please fill out our form.</h1>
+
+    <div class="form-header">
+      <slot name="formHeader"></slot>
+    </div>
+    <div class="form-fields">
+      <slot name="formFields"></slot>
+    </div>
+    <div class="form-controls">
+      <slot name="formControls"></slot>
+    </div>
+    <div class="useful-links">
+      <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+        <li><a href="#">Link 4</a></li>
+      </ul>
     </div>
   </form>
 </template>
@@ -14,8 +29,4 @@ export default {};
 
 <style lang="scss" scoped>
 @import '../assets/styles/variables';
-
-h2 {
-  color: red;
-}
 </style>

@@ -4,9 +4,33 @@
     <div class="main-content">
       <!-- <Ninjas :ninjas="ninjas"></Ninjas> -->
       <FormHelper>
-        <div class="text-center" slot="Formheader">
+        <!-- <div class="text-center" slot="Formheader">
           <h2>{{ formTitle }}</h2>
           <p>I am the paragraph text for the helper</p>
+        </div> -->
+        <div slot="formHeader" class="text-center">
+          <h3>This is the title of the form</h3>
+          <p>information about the form</p>
+        </div>
+
+        <div slot="formFields">
+          <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="">Phone</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+
+        <div slot="formControls" class="text-center">
+          <button class="btn btn-primary">Submit</button>
+          <button class="btn btn-secondary">Reset</button>
         </div>
       </FormHelper>
     </div>
