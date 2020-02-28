@@ -2,7 +2,13 @@
   <div>
     <Header :title="appTitle" @changeTitle="updateTitle($event)"></Header>
     <div class="main-content">
-      <Ninjas :ninjas="ninjas"></Ninjas>
+      <!-- <Ninjas :ninjas="ninjas"></Ninjas> -->
+      <FormHelper>
+        <div class="text-center" slot="Formheader">
+          <h2>{{ formTitle }}</h2>
+          <p>I am the paragraph text for the helper</p>
+        </div>
+      </FormHelper>
     </div>
     <Footer :title="appTitle"></Footer>
   </div>
@@ -12,14 +18,17 @@
 import Header from './components/header';
 import Footer from './components/footer';
 import Ninjas from './components/ninjas';
+import FormHelper from './components/formHelper';
 export default {
   components: {
     Header,
     Footer,
-    Ninjas
+    Ninjas,
+    FormHelper
   },
   data() {
     return {
+      formTitle: 'I am a dynamic slot title',
       appTitle: 'Vue Ninjas',
       ninjas: [
         { name: 'Ryu', speciality: 'Vue Components', show: false },
