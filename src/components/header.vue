@@ -12,8 +12,14 @@ export default {
     }
   },
   methods: {
+    // this will change the title in header only
+    // changeTitle: function() {
+    //   this.title = 'Shah Zaib';
+    // }
+
+    // emit event to root component
     changeTitle: function() {
-      this.title = 'Shah Zaib';
+      this.$emit('changeTitle', 'Shah Zaib');
     }
   }
 };
