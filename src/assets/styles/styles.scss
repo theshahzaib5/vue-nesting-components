@@ -1,0 +1,29 @@
+@import '../styles/variables';
+
+body {
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  min-height: calc(100vh - 122px);
+}
