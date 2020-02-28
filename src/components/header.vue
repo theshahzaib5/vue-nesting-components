@@ -5,21 +5,31 @@
 </template>
 
 <script>
+import { bus } from '../main';
+
 export default {
   props: {
     title: {
       type: String
     }
   },
+
   methods: {
     // this will change the title in header only
     // changeTitle: function() {
     //   this.title = 'Shah Zaib';
     // }
-
+    //
     // emit event to root component
+    // changeTitle: function() {
+    //   this.$emit('changeTitle', 'Shah Zaib');
+    // }
+    //
+    // emit event using bus event
+
     changeTitle: function() {
-      this.$emit('changeTitle', 'Shah Zaib');
+      this.title = 'Shah Zaib';
+      bus.$emit('titleChanged', 'Shah Zaib');
     }
   }
 };
