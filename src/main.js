@@ -9,15 +9,6 @@ import './assets/styles/styles.scss';
 Vue.use(VueResource);
 
 // custom directives
-Vue.directive('rainbow', {
-  bind(el, binding, vnode) {
-    el.style.color =
-      '#' +
-      Math.random()
-        .toString()
-        .slice(2, 8);
-  }
-});
 
 Vue.directive('theme', {
   bind(el, binding, vnode) {
@@ -33,9 +24,6 @@ Vue.directive('theme', {
   }
 });
 
-Vue.filter('upperCase', function(value) {
-  return value.toUpperCase();
-});
 Vue.filter('snippet', function(value) {
   return value.slice(0, 100) + ' ...';
 });
