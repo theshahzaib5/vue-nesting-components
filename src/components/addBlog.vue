@@ -2,7 +2,7 @@
   <div class="add-blog container">
     <h2 class="text-center">Add a new blog post</h2>
 
-    <form action="">
+    <form action="" v-if="!submitted">
       <div class="form-group">
         <label for="">Blog Title</label>
         <!-- if you add v-model.lazy to v-model it would load the data in preview when your click on preview-->
@@ -42,7 +42,15 @@
           <option v-for="author in authors" :key="author">{{ author }}</option>
         </select>
       </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary" @click.prevent="post">Add Blog</button>
+      </div>
     </form>
+
+    <div v-if="submitted">
+      <h3 class="text-center">Thanks for adding your post</h3>
+    </div>
 
     <div class="preview">
       <h3 class="text-center">Preview blog</h3>
@@ -68,8 +76,23 @@ export default {
         categories: [],
         author: ''
       },
-      authors: ['Shah', 'Zaib', 'Abdul', 'Amir', 'Vue']
+      authors: ['Shah', 'Zaib', 'Abdul', 'Amir', 'Vue'],
+      submitted: false
     };
+  },
+  methods: {
+    post: function() {
+      this.$http
+        .post('http://jsonplaceholder.typicode.com/posts', {
+          userId: 1,
+          title: this.blog.title,
+          body: this.blog.content
+        })
+        .then(function(data) {
+          console.log(data);
+          this.submitted = true;
+        });
+    }
   }
 };
 </script>
