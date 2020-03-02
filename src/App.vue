@@ -43,8 +43,9 @@
         <button class="btn btn-primary" @click="component = 'FormOne'">Show form one</button>
         <button class="btn btn-primary" @click="component = 'FormTwo'">Show form two</button>
       </div> -->
-      <AddBlog />
+      <!-- <AddBlog /> -->
       <ShowBlog />
+      <ListBlogs />
     </div>
     <Footer :title="appTitle"></Footer>
   </div>
@@ -59,6 +60,7 @@ import FormOne from './components/formOne';
 import FormTwo from './components/formTwo';
 import AddBlog from './components/addBlog';
 import ShowBlog from './components/showBlogs';
+import ListBlogs from './components/listBlogs';
 
 export default {
   components: {
@@ -69,7 +71,8 @@ export default {
     FormOne,
     FormTwo,
     AddBlog,
-    ShowBlog
+    ShowBlog,
+    ListBlogs
   },
   data() {
     return {
