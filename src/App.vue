@@ -44,6 +44,7 @@
         <button class="btn btn-primary" @click="component = 'FormTwo'">Show form two</button>
       </div> -->
       <AddBlog />
+      <ShowBlog />
     </div>
     <Footer :title="appTitle"></Footer>
   </div>
@@ -57,6 +58,7 @@ import FormHelper from './components/formHelper';
 import FormOne from './components/formOne';
 import FormTwo from './components/formTwo';
 import AddBlog from './components/addBlog';
+import ShowBlog from './components/showBlogs';
 
 export default {
   components: {
@@ -66,7 +68,8 @@ export default {
     FormHelper,
     FormOne,
     FormTwo,
-    AddBlog
+    AddBlog,
+    ShowBlog
   },
   data() {
     return {
