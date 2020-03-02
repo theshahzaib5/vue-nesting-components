@@ -82,16 +82,10 @@ export default {
   },
   methods: {
     post: function() {
-      this.$http
-        .post('http://jsonplaceholder.typicode.com/posts', {
-          userId: 1,
-          title: this.blog.title,
-          body: this.blog.content
-        })
-        .then(function(data) {
-          console.log(data);
-          this.submitted = true;
-        });
+      this.$http.post('https://learning-vue-fe07d.firebaseio.com/posts.json', this.blog).then(function(data) {
+        console.log('data: ', data);
+        this.submitted = true;
+      });
     }
   }
 };
