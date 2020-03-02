@@ -3,7 +3,11 @@
     <h1 class="text-center">All blog articles</h1>
     <input type="text" class="form-control" v-model="search" placeholder="Search..." />
     <section class="single-blog" v-for="item in filteredBlogs" :key="item.id">
-      <h2 v-rainbow>{{ item.title | upperCase }}</h2>
+      <router-link :to="'/blog/' + item.id">
+        <h2 v-rainbow>
+          {{ item.title | upperCase }}
+        </h2>
+      </router-link>
       <p>{{ item.body | snippet }}</p>
     </section>
   </div>
