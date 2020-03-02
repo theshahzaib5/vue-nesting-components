@@ -3,8 +3,8 @@
     <h1 class="text-center">All blog articles</h1>
 
     <section class="single-blog" v-for="item in blogs" :key="item.id">
-      <h2 v-rainbow>{{ item.title }}</h2>
-      <p>{{ item.body }}</p>
+      <h2 v-rainbow>{{ item.title | upperCase }}</h2>
+      <p>{{ item.body | snippet }}</p>
     </section>
   </div>
 </template>
