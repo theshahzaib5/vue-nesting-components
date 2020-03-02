@@ -1,12 +1,19 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import Routes from './routes';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/styles/styles.scss';
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes: Routes
+});
 
 // custom directives
 
@@ -32,5 +39,6 @@ export const bus = new Vue();
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router: router
 });
