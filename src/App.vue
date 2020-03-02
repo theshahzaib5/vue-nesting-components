@@ -35,14 +35,15 @@
       <!-- </FormHelper> -->
       <!-- <FormOne /> -->
       <!-- <FormTwo /> -->
-      <keep-alive>
+      <!-- <keep-alive>
         <component :is="component"></component>
-      </keep-alive>
+      </keep-alive> -->
 
-      <div class="text-center">
+      <!-- <div class="text-center">
         <button class="btn btn-primary" @click="component = 'FormOne'">Show form one</button>
         <button class="btn btn-primary" @click="component = 'FormTwo'">Show form two</button>
-      </div>
+      </div> -->
+      <AddBlog />
     </div>
     <Footer :title="appTitle"></Footer>
   </div>
@@ -55,6 +56,7 @@ import Ninjas from './components/ninjas';
 import FormHelper from './components/formHelper';
 import FormOne from './components/formOne';
 import FormTwo from './components/formTwo';
+import AddBlog from './components/addBlog';
 
 export default {
   components: {
@@ -63,7 +65,8 @@ export default {
     Ninjas,
     FormHelper,
     FormOne,
-    FormTwo
+    FormTwo,
+    AddBlog
   },
   data() {
     return {
