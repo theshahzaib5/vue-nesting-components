@@ -1,7 +1,14 @@
 <template>
-  <div class="show-blogs container text-center" v-theme:withBg="'narrow'">
+  <div class="show-blogs container" v-theme:withBg="'narrow'">
     <h1>{{ blog.title }}</h1>
-    <p>{{ blog.body }}</p>
+    <p>{{ blog.content }}</p>
+    <p><strong>Author: </strong> {{ blog.author }}</p>
+
+    <p><strong>Categories:</strong></p>
+
+    <ul class="d-flex">
+      <li v-for="category in blog.categories" :key="category">{{ category }}</li>
+    </ul>
   </div>
 </template>
 
@@ -16,10 +23,14 @@ export default {
     };
   },
   created() {
-    this.$http.get('http://jsonplaceholder.typicode.com/posts/' + this.id).then(function(data) {
-      console.log('data: ', data);
-      this.blog = data.body;
-    });
+    this.$http
+      .get('https://learning-vue-fe07d.firebaseio.com/posts/' + this.id + '.json')
+      .then(function(data) {
+        return data.json();
+      })
+      .then(function(data) {
+        this.blog = data;
+      });
   }
 };
 </script>
@@ -38,5 +49,13 @@ h1 {
   margin: 15px 0;
   background: #eee;
   padding: 20px;
+}
+
+.d-flex {
+  li {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
 }
 </style>

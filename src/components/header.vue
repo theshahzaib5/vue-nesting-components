@@ -1,7 +1,8 @@
 <template>
   <header class="text-center">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" @click.prevent="changeTitle" href="/">{{ title }}</a>
+      <!-- <a class="navbar-brand" @click.prevent="changeTitle" href="/">{{ title }}</a> -->
+      <a class="navbar-brand" href="/">{{ title }}</a>
 
       <button
         class="navbar-toggler"

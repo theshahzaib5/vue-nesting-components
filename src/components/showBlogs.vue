@@ -8,7 +8,8 @@
           {{ item.title | upperCase }}
         </h2>
       </router-link>
-      <p>{{ item.body | snippet }}</p>
+      <!-- <p>{{ item.content | snippet }}</p> -->
+      <p>{{ item.content }}</p>
     </section>
   </div>
 </template>
@@ -25,11 +26,20 @@ export default {
   },
   methods: {},
   created() {
-    console.log('asdfasfd Shah Zaib');
-    this.$http.get('http://jsonplaceholder.typicode.com/posts').then(function(data) {
-      console.log(data);
-      this.blogs = data.body.slice(0, 10);
-    });
+    this.$http
+      .get('https://learning-vue-fe07d.firebaseio.com/posts.json')
+      .then(function(data) {
+        return data.json();
+      })
+      .then(function(data) {
+        console.log('data: ', data);
+        let blogsArray = [];
+        for (let key in data) {
+          data[key].id = key;
+          blogsArray.push(data[key]);
+        }
+        this.blogs = blogsArray;
+      });
   },
   computed: {},
   filters: {
